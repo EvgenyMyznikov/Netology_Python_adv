@@ -23,9 +23,7 @@ def habr_announce_looker():
                 link = post.find('a', class_='post__title_link')
                 url = link.attrs.get('href')
                 title = link.text.strip()
-                articles.append(dt)
-                articles.append(title)
-                articles.append(url)
+                articles.append(f'{dt} - {title} - {url}')
                 break
     return articles
 
@@ -48,9 +46,7 @@ def habr_text_looker():
                 dt = soup_new.find('span', class_='post__time').text
                 link = soup_new.find('span', class_='post__title-text')
                 title = link.text.strip()
-                articles_tl.append(dt)
-                articles_tl.append(title)
-                articles_tl.append(one_url)
+                articles_tl.append(f'{dt} - {title} - {one_url}')
                 break
     return articles_tl
 
